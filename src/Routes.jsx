@@ -25,6 +25,7 @@ const Routes = () => {
         <Route path="/public-vendor-registration-form" element={<PublicVendorRegistrationForm />} />
         <Route path="/vendor-master-list" element={<VendorMasterList />} />
         <Route path="/vendor-profile-details" element={<VendorProfileDetails />} />
+        <Route path="/vendor-profile-details/:vendorId" element={<VendorProfileDetails />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
       </ErrorBoundary>

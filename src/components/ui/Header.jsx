@@ -18,8 +18,7 @@ const Header = () => {
   const navigationItems = [
     { label: 'Dashboard', path: '/dashboard-overview', icon: 'LayoutDashboard' },
     { label: 'Vendors', path: '/vendor-master-list', icon: 'Building2' },
-    { label: 'Approvals', path: '/vendor-approval-workflow', icon: 'CheckCircle' },
-    { label: 'Profiles', path: '/vendor-profile-details', icon: 'User' }
+    { label: 'Approvals', path: '/vendor-approval-workflow', icon: 'CheckCircle' }
   ];
 
   const isActivePath = (path) => {

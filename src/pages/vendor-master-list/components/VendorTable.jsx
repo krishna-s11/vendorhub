@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import { Checkbox } from '../../../components/ui/Checkbox';
@@ -14,6 +15,7 @@ const VendorTable = ({
   onEditVendor,
   onExportVendor
 }) => {
+  const navigate = useNavigate();
   const [expandedRows, setExpandedRows] = useState(new Set());
 
   const toggleRowExpansion = (vendorId) => {
@@ -24,6 +26,10 @@ const VendorTable = ({
       newExpanded.add(vendorId);
     }
     setExpandedRows(newExpanded);
+  };
+
+  const handleVendorClick = (vendor) => {
+    navigate(`/vendor-profile-details/${vendor.id}`, { state: { vendor } });
   };
 
   const getStatusBadge = (status) => {
@@ -186,7 +192,12 @@ const VendorTable = ({
                   </td>
                   <td className="px-4 py-3">
                     <div>
-                      <div className="font-medium text-foreground">{vendor.companyName}</div>
+                      <div 
+                        className="font-medium text-foreground hover:text-primary cursor-pointer transition-micro"
+                        onClick={() => handleVendorClick(vendor)}
+                      >
+                        {vendor.companyName}
+                      </div>
                       <div className="text-sm text-text-secondary">{vendor.contactPerson}</div>
                     </div>
                   </td>
@@ -300,7 +311,12 @@ const VendorTable = ({
                   className="mt-1"
                 />
                 <div className="flex-1">
-                  <div className="font-medium text-foreground">{vendor.companyName}</div>
+                  <div 
+                    className="font-medium text-foreground hover:text-primary cursor-pointer transition-micro"
+                    onClick={() => handleVendorClick(vendor)}
+                  >
+                    {vendor.companyName}
+                  </div>
                   <div className="text-sm text-text-secondary">{vendor.contactPerson}</div>
                   <div className="font-mono text-sm text-primary mt-1">{vendor.vendorCode}</div>
                 </div>

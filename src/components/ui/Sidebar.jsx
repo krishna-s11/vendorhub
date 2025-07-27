@@ -26,12 +26,6 @@ const Sidebar = () => {
       icon: 'CheckCircle',
       description: 'Pending vendor approvals',
       badge: 3
-    },
-    { 
-      label: 'Vendor Profiles', 
-      path: '/vendor-profile-details', 
-      icon: 'User',
-      description: 'Detailed vendor information'
     }
   ];
 
